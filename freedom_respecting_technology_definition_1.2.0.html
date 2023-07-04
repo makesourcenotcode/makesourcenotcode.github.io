@@ -107,14 +107,7 @@ So why then should FOSS projects aim for FRTD compliance when they have limited 
 How do contributors to FOSS projects come about once they discover the project by some means? They try meaningfully studying it beyond the initial marketing fluff to see if it's suitable for their objectives whether directly or with some reasonable amount of customization work. Then once they've studied enough to meaningfully use the project and do so for a while they get a deep gut feeling of its current behavior/workings and a sense of the gap between those and the desired behavior/workings. At that point they finally know enough to contribute meaningful fixes that the project maintainers would likely find useful and incorporate. After some time if there's a consistent track record of contributions they themselves may be promoted to a maintainer if that's what they want. This is what the FOSS contribution pipeline often looks like.<br/><br/>
 Often what happens to this pipeline in non-FRT FOSS projects is that it gets disrupted very early on by newcomers not being able to meaningfully access/study the full Open Knowledge Set in a reasonably self sufficient manner let alone use it, further develop it, and contribute those developments back. FRTD compliance should be prioritized over other often less important feature work because True Open Knowledge is the meta feature that builds the community around a project and thus helps scale the resources closer to what's really needed for other development. The alternative is a death spiral of burnout once resources run out.<br/><br/>
 Open the knowledge and the builders will come.<br/><br/>
-<b>concluding demo</b><br/>
-<pre>
-# This snippet is a Freedom Respecting Technology with itself as it's full Open
-# Knowledge Set. It's a recipe to mitigate the fact that Zypper doesn't have a
-# proper autoremove command like many competing package managers. To avoid
-# wasted disk space at best and potential privilege escalation vulnerabilities
-# from setuid executables left by orphaned packages autoremove can be emulated
-# as follows:
-zypper rm -u `zypper pa --unneeded | tail -n+5 | cut -d'|' -f3`
-</pre>
+<b>concluding demo</b><br/><br/>
+This snippet is a Freedom Respecting Technology with itself as it's full Open Knowledge Set. It's a recipe to mitigate the fact that Zypper doesn't have a proper autoremove command like many competing package managers. To avoid wasted disk space at best and potential privilege escalation vulnerabilities from setuid executables left by unneeded packages autoremove can be emulated as follows:
+<pre>zypper rm -u `zypper pa --unneeded | tail -n+5 | cut -d'|' -f3`</pre>
 </body></html>
