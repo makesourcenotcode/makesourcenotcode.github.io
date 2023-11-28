@@ -1,0 +1,31 @@
+#!/bin/sh
+
+output_interesting_offsets_in_disk_image(){
+  grep -b -o -a -- '-----BEGIN PGP PRIVATE KEY BLOCK-----' "$1" |
+    cut -d : -f 1;}
+
+save_found_artifact(){
+  image_file_path="$1"
+  offset_in_disk_image=$2
+  recovered_object_folder="$3"
+  dd if="$image_file_path" ibs=1 skip=$offset_in_disk_image count=32768 \
+    of="$recovered_object_folder/found_at_offset_$interesting_offset";}
+
+assert_usability_of_recovered_object_folder(){
+  mkdir -p "$1" 2>/dev/null
+  if test ! -d "$1" || test ! -r "$1" || test ! -w "$1" || test ! -e "$1"; then
+    echo unusable proposed folder for recovered objects: "$1";
+    echo no point doing a resource intensive search with nowhere to put results
+    exit 1; fi;}
+
+main(){
+  image_file_path="$1"
+  recovered_object_folder="$2"
+  assert_usability_of_recovered_object_folder "$recovered_object_folder"
+  interesting_offsets=`
+    output_interesting_offsets_in_disk_image "$image_file_path"`
+  for interesting_offset in $interesting_offsets; do
+    save_found_artifact "$image_file_path" $interesting_offset \
+      "$recovered_object_folder"; done;}
+
+main "$@"
