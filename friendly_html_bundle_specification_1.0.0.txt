@@ -6,20 +6,20 @@ home: https://makesourcenotcode.github.io/friendly_html_bundle_spec.html
 
 === MOTIVATIONS ===
 
-Offline HTML bundles (especially HTML5) is a fantastic open format for
+Offline HTML bundles (especially HTML5) are a fantastic open format for
 documentation and provide many good affordances for consumers that most other
 formats lack whether due to fundamental limitations of their design or due to
 subpar implementations of available viewer programs.
 
 The main drawback of offline HTML bundles is that they're harder than they
-should be for novices to use. To a novice who downloaded a ZIP file of HTML,
-extracted it, and went into that folder it's far from obvious which of the HTML
+should be for novices to use. Say a novice downloaded a ZIP file of HTML,
+extracted it, and went into that folder. It's far from obvious which of the HTML
 files to open.
 
-Usually the file they want to open is index.html but again this is not obvious
-to newbies and is only learned out of band from having nerdy friends who explain
+Usually the file they want to open is index.html. But this is not obvious to
+newbies. It's only learned out of band from having nerdy friends who explain
 some of the unspoken conventions or from knowing enough basic web development to
-know the role of index.html. 
+know the role of index.html.
 
 Not to mention people who should know better about providing an index.html file
 as an entry point for readers still fail to do so hilariously often. Just for
@@ -35,7 +35,7 @@ Either way there's a discoverability problem in need of solving.
 Friendly HTML Bundles are simply folders with exactly two items.
 
 The first is a subfolder "data" which holds the actual content arranged however
-the authors see fit.
+the authors see fit much like in any other HTML bundle.
 
 The second is a "open_this_first.html" file to serve as an obvious self
 explanatory entry point that leaves no room for misinterpretation. It must link
